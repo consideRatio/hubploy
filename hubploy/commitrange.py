@@ -35,5 +35,5 @@ def get_commit_range_github():
         return f'{base}...HEAD'
 
     # push ref: https://developer.github.com/webhooks/event-payloads/#push
-    if 'before' in event:
-        return f"{event['before']}...HEAD"
+    if 'before' in event and 'after' in event:
+        return f"{event['before']}...{event['after']}"
